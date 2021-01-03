@@ -14,16 +14,10 @@ class CategoriasController {
 
   async alterar(request, response) {
     try {
-      await Categorias.upsert(
-        {
-          ...request.body,
-        },
-        {
-          where: {
-            id: request.body.id,
-          },
-        },
-      );
+      const categoria = await Categorias.findByPk(request.body.id);
+      categoria.descricao = request.body.descricao;
+
+      await Categorias.save(categoria);
       return response.status(200).json({ meta: 'sucess' });
     } catch (error) {
       return response

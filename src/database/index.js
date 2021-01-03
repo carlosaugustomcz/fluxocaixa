@@ -15,10 +15,10 @@ class Database {
     this.Connection = new Sequelize(databaseConfig.conexao);
 
     models
-      .map(model => model.init(this.Connection))
-      .map(model => {
-        if (model.associate) {
-          return model.associate(this.Connection);
+      .map((model) => model.init(this.Connection))
+      .map(() => {
+        if (models.associate) {
+          return models.associate(this.Connection);
         }
         return null;
       });

@@ -3,7 +3,7 @@ module.exports = {
     host: 'localhost',
     username: 'root',
     password: '',
-    database: 'anestech',
+    database: 'fluxocaixa',
     dialect: 'mysql',
     operatorsAlias: false,
     loggin: false,
@@ -14,4 +14,3 @@ module.exports = {
     dialectOptions: { decimalNumbers: true },
   },
 };
-

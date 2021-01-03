@@ -27,6 +27,13 @@ class Categorias extends Model {
 
     return this;
   }
+
+  static associate(models) {
+    this.hasOne(models.Movimentacoes, {
+      foreignKey: 'idCategoria',
+      as: 'Movimentacoes',
+    });
+  }
 }
 
 export default Categorias;

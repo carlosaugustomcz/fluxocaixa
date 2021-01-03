@@ -2,37 +2,73 @@ import Sequelize from 'sequelize';
 import Movimentacoes from '../models/movimentacoes';
 
 class MovimentacoesController {
-  async listar(request, response) {
-    const { data } = request.query;
-
+  async inserir(request, response) {
     try {
-      const retorno = await Movimentacoes.sequelize.query(
-        //        `SELECT
+      await Movimentacoes.create({
+        ...request.body,
+      });
+      return response.status(200).json({ meta: 'sucess' });
+    } catch (error) {
+      return response.status(400).json({ meta: 'Erro na Inclusão!' });
+    }
+  }
 
-        //       FROM
-        //        tarefas t
-        //        INNER JOIN usuarios u ON t.responsavel = u.idUsuario
-        //       WHERE descricao like '%${pesquisa}%'
-        //        AND status = '${status}'
-        //        ORDER BY ${order} ${classificacao}`,
+  async listar(request, response) {
+    try {
+      const Total = await Movimentacoes.sequelize.query(
+        `select sum(valor) as saldoTotal
+        from movimentacoes
+        where data = '${request.query.dataInicio}'`,
         {
           type: Sequelize.QueryTypes.SELECT,
         },
       );
 
-      if (!retorno.length) {
-        return response
-          .status(200)
-          .json({ meta: 'Nenhum registro encontrado' });
+      const retorno = await Movimentacoes.sequelize.query(
+        `SELECT m.id, m.valor, m.descricao as descricao, data,
+        CASE WHEN m.tipo = 'E' THEN 'Entrada' WHEN m.tipo = 'S' THEN 'Saída' END AS tipo,
+        m.idcategoria, c.descricao as name
+        FROM movimentacoes m
+        INNER JOIN categorias c ON m.idcategoria=c.id
+        where m.data = '${request.query.dataInicio}'`,
+        {
+          type: Sequelize.QueryTypes.SELECT,
+        },
+      );
+
+      if (!retorno) {
+        return response.json({
+          meta: 'nenhum registro encontrado!',
+        });
       }
 
       return response.status(200).json({
-        data: retorno,
+        Total,
+        movimentacoes: retorno,
+      });
+    } catch (error) {
+      return response.status(400).json({
+        meta: error,
+      });
+    }
+  }
+
+  async deletar(request, response) {
+    const id = request.body.id;
+
+    try {
+      await Movimentacoes.destroy({
+        where: {
+          id,
+        },
+      });
+
+      return response.status(200).json({
         meta: 'sucess',
       });
     } catch (error) {
       return response.status(400).json({
-        meta: 'Error',
+        meta: error,
       });
     }
   }

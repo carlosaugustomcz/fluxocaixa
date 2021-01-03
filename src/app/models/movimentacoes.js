@@ -15,6 +15,10 @@ class Movimentacoes extends Model {
         idCategoria: {
           type: Sequelize.INTEGER,
           allowNull: false,
+          references: {
+            model: 'categoria',
+            key: 'idCategoria',
+          },
           field: 'idCategoria',
         },
         valor: {
@@ -55,6 +59,13 @@ class Movimentacoes extends Model {
     this.tableName = 'movimentacoes';
 
     return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Categorias, {
+      foreignKey: 'idCategoria',
+      as: 'categoria',
+    });
   }
 }
 
