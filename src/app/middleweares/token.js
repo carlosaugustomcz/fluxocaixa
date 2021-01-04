@@ -22,16 +22,16 @@ export default async (request, response, next) => {
   const [scheme, token] = parts;
 
   if (!scheme == 'Bearer') {
-  return response.status(401).json({
-    meta: 'Token não foi Informado',
+    return response.status(401).json({
+      meta: 'Token não foi Informado',
     });
   }
 
   try {
     const decodedToken = await promisify(jwt.verify)(token, secret);
 
-    request.idCliente = decodedToken.id;
-    request.mac = decodedToken.mac;
+    request.id = decodedToken.id;
+    request.senha = decodedToken.senha;
 
     next();
   } catch (error) {

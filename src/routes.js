@@ -3,6 +3,7 @@ import TokenMiddlewares from './app/middleweares/token';
 
 import CategoriasController from './app/controllers/CategoriasController';
 import MovimentacoesController from './app/controllers/MovimentacoesController';
+import AutenticarController from './app/controllers/AutenticarController';
 
 const routes = new Router();
 
@@ -28,5 +29,8 @@ routes.delete(
   '/movimentacoes/deletar',
   MovimentacoesController.deletar,
 );
+
+// Autenticacao
+routes.get('fluxocaixa/autenticar', AutenticarController.autenticar);
 
 export default routes;
