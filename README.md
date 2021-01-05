@@ -83,19 +83,28 @@ Movimentacao
   
   BODY 
   {
+  
       "descricao":"Recebimento do Aluguel Janeiro",
+      
       "idCategoria":4,
+      
       "valor":500.00,
+      
       "dataEntrada":"2020/01/03 00:00:00z",
+      
      "data":"2020/01/03",
+     
       "tipo":"E"
+      
   }
 
 DEL Deletar Movimentacoes :  http://localhost:3333/movimentacoes/deletar
   
   BODY
   {
+  
       "id":6
+      
   }
 
 GET Listar Movimentacoes :  http://localhost:3333/movimentacoes/listar?dataInicio=2021/01/03
