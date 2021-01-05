@@ -69,7 +69,9 @@ PUT Alterar Categoria:  http://localhost:3333/categorias/alterar
   
   {
      "id":2,
+     
       "descricao":"Telefone"
+      
   }
 
 DEL Deletar Categoria:   http://localhost:3333/categoria/deletar
@@ -82,6 +84,7 @@ BODY
   }
 
 Movimentacao
+
   * (tipo: "E" - entrada / "S" - saída)
   
   BODY 
