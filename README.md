@@ -41,8 +41,9 @@ Em seguida, faça uma nova conexão como:
 * password: root
 * port: 3306
 
-No prompt vá para a pasta onde baixou o projeto:
+No command prompt na pasta onde baixou o projeto:
  excute: 
+ 
   yarn sequelize db:migrate 
 
 Irá criar as tabelas na database : fluxocaixa
@@ -52,7 +53,7 @@ Irá criar as tabelas na database : fluxocaixa
    
 # Como executar a API:
 
-na pasta do projeto no prompt execute:
+na pasta do projeto no command prompt execute:
 
 * yarn Build
 
