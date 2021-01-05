@@ -42,7 +42,7 @@ class CategoriasController {
       });
     } catch (error) {
       return response.status(400).json({
-        meta: 'Error',
+        meta: error,
       });
     }
   }

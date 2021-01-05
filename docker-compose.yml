@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'fluxocaixa'
+      # Então você não precisa usar root, mas você pode se quiser
+      #MYSQL_USER:'root'
+      # Senha para acesso root
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      # <Porta exposta>: <Porta MySQL em execução dentro do contêiner>
+      - '3306:3306'
+    expose:
+      # Abre a porta 3306 no contêiner
+      - '3306'
+# Nomeia nossos
+volumes:
+  my-db:

@@ -11,6 +11,10 @@ module.exports = {
       idCategoria: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: 'categoria',
+          key: 'idCategoria',
+        },
         field: 'idCategoria',
       },
       valor: {
