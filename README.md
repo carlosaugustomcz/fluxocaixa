@@ -79,7 +79,8 @@ BODY
   }
 
 Movimentacao
-  (tipo: "E" - entrada / "S" - saída)
+  * (tipo: "E" - entrada / "S" - saída)
+  
   BODY 
   {
       "descricao":"Recebimento do Aluguel Janeiro",
@@ -90,16 +91,17 @@ Movimentacao
       "tipo":"E"
   }
 
-DEL Deletar Movimentacoes
-  http://localhost:3333/movimentacoes/deletar
-  BODY raw
+DEL Deletar Movimentacoes :  http://localhost:3333/movimentacoes/deletar
+  
+  BODY
   {
       "id":6
   }
 
-GET Listar Movimentacoes
-  http://localhost:3333/movimentacoes/listar?dataInicio=2021/01/03
+GET Listar Movimentacoes :  http://localhost:3333/movimentacoes/listar?dataInicio=2021/01/03
+  
   PARAMS
+  
   dataInicio: 2021/01/03
  
 
