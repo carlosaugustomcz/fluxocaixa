@@ -49,54 +49,58 @@ Irá criar as tabelas na database : fluxocaixa
    * SequelizeMeta
 
 Documentação das Rotas:
+
  Categorias
- POST Incluir Categoria: http://localhost:3333/categorias/inserir
- BODY 
-{
-    "descricao":"Telefone"
-}
+  * POST Incluir Categoria: http://localhost:3333/categorias/inserir
+  
+  BODY
+  
+  {
+      "descricao":"Telefone"
+  }
 
-GET Listar Categorias
-http://localhost:3333/categorias/listar
+GET Listar Categorias:  http://localhost:3333/categorias/listar
 
-PUT Alterar Categoria
-http://localhost:3333/categorias/alterar
+PUT Alterar Categoria:  http://localhost:3333/categorias/alterar
+  
+  BODY 
+  
+  {
+     "id":2,
+      "descricao":"Telefone"
+  }
+
+DEL Deletar Categoria:   http://localhost:3333/categoria/deletar
+
 BODY 
-{
-    "id":2,
-    "descricao":"Telefone"
-}
 
-DEL Deletar Categoria
-http://localhost:3333/categoria/deletar
-BODY 
 {
-    "id":3
-}
+      "id":3
+  }
 
 Movimentacao
-(tipo: "E" - entrada / "S" - saída)
-BODY 
-{
-    "descricao":"Recebimento do Aluguel Janeiro",
-    "idCategoria":4,
-    "valor":500.00,
-    "dataEntrada":"2020/01/03 00:00:00z",
-    "data":"2020/01/03",
-    "tipo":"E"
-}
+  (tipo: "E" - entrada / "S" - saída)
+  BODY 
+  {
+      "descricao":"Recebimento do Aluguel Janeiro",
+      "idCategoria":4,
+      "valor":500.00,
+      "dataEntrada":"2020/01/03 00:00:00z",
+     "data":"2020/01/03",
+      "tipo":"E"
+  }
 
 DEL Deletar Movimentacoes
-http://localhost:3333/movimentacoes/deletar
-ODY raw
-{
-    "id":6
-}
+  http://localhost:3333/movimentacoes/deletar
+  BODY raw
+  {
+      "id":6
+  }
 
 GET Listar Movimentacoes
-http://localhost:3333/movimentacoes/listar?dataInicio=2021/01/03
-PARAMS
-dataInicio: 2021/01/03
+  http://localhost:3333/movimentacoes/listar?dataInicio=2021/01/03
+  PARAMS
+  dataInicio: 2021/01/03
  
 
 
