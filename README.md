@@ -56,7 +56,9 @@ Documentação das Rotas:
   BODY
   
   {
+  
       "descricao":"Telefone"
+      
   }
 
 GET Listar Categorias:  http://localhost:3333/categorias/listar
@@ -74,14 +76,16 @@ DEL Deletar Categoria:   http://localhost:3333/categoria/deletar
 
 BODY 
 
-{
+  {
       "id":3
+      
   }
 
 Movimentacao
   * (tipo: "E" - entrada / "S" - saída)
   
   BODY 
+  
   {
   
       "descricao":"Recebimento do Aluguel Janeiro",
@@ -101,6 +105,7 @@ Movimentacao
 DEL Deletar Movimentacoes :  http://localhost:3333/movimentacoes/deletar
   
   BODY
+  
   {
   
       "id":6
