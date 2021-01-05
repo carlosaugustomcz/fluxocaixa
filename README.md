@@ -3,7 +3,7 @@ Projeto API Caixa Virtual
 
 Criação de uma Api para saber o tempo gasto nas tarefas diárias.
 
-Tecnologias :
+# Tecnologias :
 
 *	Node 12.16.3.
 *	Express 4.17.1
@@ -20,7 +20,7 @@ Tecnologias :
 * Docker
 * Docker Compose
 
-Como Executar
+# Como Executar
 *	clonar o projeto do repositório (GitHub)
 * instalar o Docker
 * baixar a imagem do Mysql 5.7
@@ -51,7 +51,7 @@ Irá criar as tabelas na database : fluxocaixa
    * movimentacoes
    * SequelizeMeta
    
-Como executar a API:
+# Como executar a API:
 
 na pasta do projeto no prompt execute:
 
@@ -62,7 +62,7 @@ depois execute
 * yarn prod
 
 
-Documentação das Rotas:
+# Documentação das Rotas:
 
  Categorias
   * POST Incluir Categoria: http://localhost:3333/categorias/inserir
@@ -75,13 +75,18 @@ Documentação das Rotas:
       
   }
 
-GET Listar Categorias:  http://localhost:3333/categorias/listar
+GET Listar Categorias:  
 
-PUT Alterar Categoria:  http://localhost:3333/categorias/alterar
+http://localhost:3333/categorias/listar
+
+PUT Alterar Categoria:  
+
+http://localhost:3333/categorias/alterar
   
   BODY 
   
   {
+  
      "id":2,
      
       "descricao":"Telefone"
