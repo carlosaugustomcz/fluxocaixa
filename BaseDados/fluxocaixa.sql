@@ -24,8 +24,6 @@ CREATE TABLE `movimentacoes` (
   `dataSaida` date DEFAULT NULL,
   `tipo` char(1) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK_movimento_entrada` (`valor`),
-  KEY `FK_movimento_saida` (`dataEntrada`),
   KEY `FK_movimento_categoria` (`idCategoria`),
   CONSTRAINT `FK_movimento_categoria` FOREIGN KEY (`idCategoria`) REFERENCES `categorias` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;

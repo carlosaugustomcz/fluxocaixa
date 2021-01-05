@@ -17,7 +17,7 @@ class Movimentacoes extends Model {
           allowNull: false,
           references: {
             model: 'categoria',
-            key: 'idCategoria',
+            key: 'id',
           },
           field: 'idCategoria',
         },

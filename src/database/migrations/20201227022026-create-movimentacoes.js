@@ -12,8 +12,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'categoria',
-          key: 'idCategoria',
+          model: 'categorias',
+          key: 'id',
+          onUpdate: 'RESTRICT',
+          onDelete: 'RESTRICT',
         },
         field: 'idCategoria',
       },
