@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
 import Movimentacoes from '../models/movimentacoes';
+import RestHelper from '../helper/RestHelper';
 
 class MovimentacoesController {
   async inserir(request, response) {
@@ -13,10 +14,32 @@ class MovimentacoesController {
     }
   }
 
-  async listar(request, response) {
+  /*async listar(request, response){
     try {
-      const Total = await Movimentacoes.sequelize.query(
-        `select sum(valor) as saldoTotal
+      const retorno = await Movimentacoes.findAll({
+        include: { association: 'Categorias' },
+      });
+
+      console.log(retorno);
+
+      if (!retorno) {
+        return response.json({
+          meta: 'nenhum registro encontrado!',
+        });
+      }
+
+      return response.status(200).json({
+        movimentacoes: retorno,
+      });
+    } catch (error) {
+
+    }
+  }
+*/
+   async listar(request, response) {
+    try {
+      const subtotal = await Movimentacoes.sequelize.query(
+        `select sum(valor) as subTotal
         from movimentacoes
         where data = '${request.query.dataInicio}'`,
         {
@@ -43,8 +66,8 @@ class MovimentacoesController {
       }
 
       return response.status(200).json({
-        Total,
-        movimentacoes: retorno,
+        subTotal: RestHelper.getData(subtotal),
+        movimentacoes: RestHelper.getData(retorno),
       });
     } catch (error) {
       return response.status(400).json({

@@ -29,7 +29,7 @@ class Categorias extends Model {
   }
 
   static associate(models) {
-    this.hasOne(models.Movimentacoes, {
+    this.hasMany(models.Movimentacoes, {
       foreignKey: 'idCategoria',
       as: 'Movimentacoes',
     });

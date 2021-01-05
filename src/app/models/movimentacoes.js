@@ -12,19 +12,19 @@ class Movimentacoes extends Model {
           autoIncrement: true,
           field: 'id',
         },
-        idCategoria: {
-          type: Sequelize.INTEGER,
-          allowNull: false,
-          references: {
-            model: 'categoria',
-            key: 'id',
-          },
-          field: 'idCategoria',
-        },
         valor: {
           type: Sequelize.DECIMAL,
           allowNull: false,
           field: 'valor',
+        },
+        idCategoria: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'Categorias',
+            key: 'idCategoria',
+          },
+          field: 'idCategoria',
         },
         tipo: {
           type: Sequelize.STRING,
@@ -64,7 +64,7 @@ class Movimentacoes extends Model {
   static associate(models) {
     this.belongsTo(models.Categorias, {
       foreignKey: 'idCategoria',
-      as: 'categoria',
+      as: 'Categorias',
     });
   }
 }
