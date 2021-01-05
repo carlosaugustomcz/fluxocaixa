@@ -24,8 +24,11 @@ Como Executar
 *	clonar o projeto do repositório (GitHub)
 * instalar o Docker
 * baixar a imagem do Mysql 5.7
-* executar o comando no prompt : "docker-compose up"
-  ele irá criar o componente fluxocaixa.
+* executar o comando no prompt : 
+
+"docker-compose up"
+
+Irá criar o componente fluxocaixa.
 
 Conexão com o MySQL Workbench
 Baixando o MySQL Workbench
@@ -47,6 +50,17 @@ Irá criar as tabelas na database : fluxocaixa
    * cartegorias
    * movimentacoes
    * SequelizeMeta
+   
+Como executar a API:
+
+na pasta do projeto no prompt execute:
+
+* yarn Build
+
+depois execute 
+
+* yarn prod
+
 
 Documentação das Rotas:
 
