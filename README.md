@@ -24,8 +24,7 @@ Criação de uma Api para saber o tempo gasto nas tarefas diárias.
 *	clonar o projeto do repositório (GitHub)
 * instalar o Docker
 * baixar a imagem do Mysql 5.7
-* executar o comando no prompt : 
-
+* executar o comando no prompt na pasta do projeto: 
 "docker-compose up"
 
 Irá criar o componente fluxocaixa.
@@ -98,6 +97,7 @@ DEL Deletar Categoria:   http://localhost:3333/categoria/deletar
 BODY 
 
   {
+  
       "id":3
       
   }
