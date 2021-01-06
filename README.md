@@ -1,8 +1,6 @@
 # fluxocaixa
 Projeto API Caixa Virtual
 
-Criação de uma Api para saber o tempo gasto nas tarefas diárias.
-
 # Tecnologias :
 
 *	Node 12.16.3.
